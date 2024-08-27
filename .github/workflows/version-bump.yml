@@ -27,7 +27,7 @@ jobs:
 
       - name: Commit version bump
         run: |
-          echo "Current version: $CURRENT_VERSION"
+          NEW_VERSION=$(cat package.json | jq -r '.version')
           echo "New version: $NEW_VERSION"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
