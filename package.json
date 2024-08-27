@@ -1,0 +1,25 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "Deep dive into github actions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kavingovind/learning-github-actions.git"
+  },
+  "keywords": [
+    "github-actions",
+    "github-action-workflows",
+    "workflows"
+  ],
+  "author": "kavingovind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kavingovind/learning-github-actions/issues"
+  },
+  "homepage": "https://github.com/kavingovind/learning-github-actions#readme"
+}
