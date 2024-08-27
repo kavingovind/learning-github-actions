@@ -1,0 +1,35 @@
+name: Increment Version on Merge to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Increment version
+        run: |
+          CURRENT_VERSION=$(cat package.json | jq -r '.version')
+          NEW_VERSION=$(npm version patch --git-tag-version false)
+          echo "New version: $NEW_VERSION"
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore: bump version to $NEW_VERSION"
+          git push origin main
